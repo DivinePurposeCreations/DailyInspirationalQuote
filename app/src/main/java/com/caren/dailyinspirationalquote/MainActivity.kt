@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel.currentlyDisplayedQuote.observe(this,
-            { findViewById<TextView>(R.id.text).text = it?.quote })
+            { findViewById<TextView>(R.id.text).text = "\" " + it?.quote + "\" " + " -" + it?.author })
+
+        findViewById<Button>(R.id.button).setOnClickListener {
+            viewModel.getNewQuote()
+        }
     }
 }
